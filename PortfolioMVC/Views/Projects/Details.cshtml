@@ -1,0 +1,60 @@
+﻿@model PortfolioMVC.Models.Project
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="container py-5">
+
+    <a asp-action="Index"
+       class="btn btn-outline-secondary mb-4">
+        ← Back to Projects
+    </a>
+
+    <div class="card shadow">
+
+        <img src="@Model.ImageUrl"
+             class="card-img-top project-detail-image"
+             alt="@Model.Title">
+
+        <div class="card-body p-4">
+
+            <h1>@Model.Title</h1>
+
+            <p class="lead">
+                @Model.Description
+            </p>
+
+            <hr />
+
+            <h3>About the Project</h3>
+
+            <p>
+                @Model.LongDescription
+            </p>
+
+            <h3>Technologies</h3>
+
+            <p>
+                @Model.Technologies
+            </p>
+
+            <a href="@Model.GitHubUrl"
+               target="_blank"
+               class="btn btn-dark">
+                View GitHub Repository
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="mt-5">
+
+        <h2>Comments</h2>
+
+        <!-- Comment form goes here -->
+
+    </div>
+
+</div>

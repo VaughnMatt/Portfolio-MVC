@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PortfolioMVC.Models.Project>
+
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<div class="container py-5">
+
+    <h1 class="text-center mb-2">
+        My Projects
+    </h1>
+
+    <p class="text-center text-muted mb-5">
+        Explore the applications I have created.
+    </p>
+
+    <div class="row">
+
+        @foreach (var project in Model)
+        {
+            <div class="col-md-6 col-lg-4 mb-4">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img src="@project.ImageUrl"
+                         class="card-img-top"
+                         alt="@project.Title">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <h5 class="card-title">
+                            @project.Title
+                        </h5>
+
+                        <p class="card-text">
+                            @project.Description
+                        </p>
+
+                        <div class="mt-auto">
+
+                            <a asp-action="Details"
+                               asp-route-id="@project.Id"
+                               class="btn btn-primary">
+                                View Details
+                            </a>
+
+                            <a href="@project.GitHubUrl"
+                               target="_blank"
+                               class="btn btn-outline-dark">
+                                GitHub
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+</div>
